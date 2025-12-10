@@ -121,10 +121,19 @@ header {
     height: 70px;
 }
 
+/* 1. Logo (Chiếm không gian bên trái) */
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-color);
+    flex: 1; /* Giúp đẩy các phần tử khác ra giữa */
+}
+
+/* 2. Menu Links (Căn giữa tuyệt đối) */
+.nav-center {
+    flex: 2; /* Chiếm phần lớn không gian giữa */
+    display: flex;
+    justify-content: center;
 }
 
 .nav-links {
@@ -136,10 +145,25 @@ header {
     font-weight: 500;
     color: var(--text-color);
     transition: var(--transition);
+    font-size: 0.95rem;
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
+}
+
+/* 3. Button bên phải */
+.nav-right {
+    flex: 1; /* Cân bằng với Logo */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-sm {
+    padding: 8px 20px;
+    font-size: 0.9rem;
 }
 
 .mobile-menu-btn {
@@ -149,6 +173,48 @@ header {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--heading-color);
+}
+
+/* --- Responsive Design (Mobile & Tablet) --- */
+@media (max-width: 900px) { /* Tăng điểm gãy (breakpoint) lên 900px để tránh vỡ menu trên tablet */
+    .hide-on-mobile {
+        display: none; /* Ẩn nút Mua ngay trên header mobile để đỡ chật */
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* Reset lại flex layout trên mobile */
+    .nav-center {
+        position: static; 
+        flex: unset;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        
+        /* Hiệu ứng trượt/ẩn */
+        transform: translateY(-150%);
+        transition: transform 0.3s ease-in-out;
+        z-index: -1;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+    
+    .nav-links li {
+        margin-bottom: 20px;
+    }
 }
 
 /* --- Hero Section --- */
