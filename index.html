@@ -19,23 +19,30 @@
     <!-- Header Section -->
     <header>
         <div class="container nav-container">
+            <!-- 1. Logo bên trái -->
             <div class="logo">BookSmart</div>
-            <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu">
-                ☰
-            </button>
-            <nav>
+
+            <!-- 2. Menu Link ở chính giữa -->
+            <nav class="nav-center">
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#hero" class="nav-link">Trang chủ</a></li>
                     <li><a href="#features" class="nav-link">Tính năng</a></li>
                     <li><a href="#about" class="nav-link">Về chúng tôi</a></li>
                     <li><a href="#reviews" class="nav-link">Đánh giá</a></li>
                     <li><a href="#faq" class="nav-link">Hỏi đáp</a></li>
-                    <li><a href="#cta" class="btn btn-sm">Mua ngay</a></li>
                 </ul>
             </nav>
+
+            <!-- 3. Nút Action bên phải -->
+            <div class="nav-right">
+                <a href="#cta" class="btn btn-sm hide-on-mobile">Mua ngay</a>
+                <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu">
+                    ☰
+                </button>
+            </div>
         </div>
     </header>
-
+    
     <!-- Hero Section -->
     <section id="hero">
         <div class="container hero-content">
